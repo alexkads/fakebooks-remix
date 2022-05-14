@@ -7,6 +7,14 @@ export async function searchCustomers(query: string) {
       name: true,
       email: true,
     },
+    where: {
+      name: {
+        contains: query
+      },
+      email: {
+        contains: query
+      }
+    }
   });
   const lowerQuery = query.toLowerCase();
   return customers.filter((c) => {
